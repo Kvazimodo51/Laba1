@@ -1,0 +1,32 @@
+
+body {
+    width: 100%;
+    margin: 0 auto;
+    background: #1abc9c;
+    font-family: Tahoma, Arial, sans-serif; 
+    color: #ffffff;
+}
+.header img {
+    display: block; 
+    width: 318px; 
+    margin: 0 auto;
+}
+
+.archive {
+    width: 960px; 
+    margin: 0 auto;
+}
+.article{
+    width: 960px; 
+    margin: 0 auto;
+}
+a {
+    color: #ffffff;
+}
+.article-info {
+    display: flex;
+    justify-content: space-between;
+}
+.article-author {
+    text-align: left;
+}
