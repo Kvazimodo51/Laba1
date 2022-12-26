@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Архив документов</title>
+  </head>
+  {% if not user.is_authenticated %}
+  <h1><a href="../register/">Нет аккаунта? Зарегистрироваться</a></h1>
+  <h1><a href="../login/">Зарегистрированы? Вход</a></h1>
+  {% endif %} {% if user.is_authenticated %}
+  <h1><a href="../article/new/">Создать статью</a></h1>
+  <h1><a href="../logout/">Выйти</a></h1>
+  {% endif %}
+  <body class="archive">
+    <div class="header">
+      <img src="../static/img/logo.jpg" />
+
+      {% for post in posts %}
+      <div class="one-post">
+        <h2 class="post-title">
+          <a href="article/{{post.id}}">{{ post.title }}</a>
+        </h2>
+        <div class="article-content">
+          <div class="article-info">
+            <div class="article-author">{{ post.author.username }}</div>
+            <div class="article-created- date">{{ post.created_date }}</div>
+          </div>
+          <p class="article-text">{{ post.get_excerpt }}</p>
+        </div>
+        <button class="fold-button">Свернуть</button>
+      </div>
+      {% endfor %}
+    </div>
+    <script src="../../static/js/fold_post.js"></script>
+    <script src="../../static/js/script.js"></script>
+  </body>
+</html>
